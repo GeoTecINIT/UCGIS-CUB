@@ -319,12 +319,14 @@ export class FileCompareService {
         }
         if (obj.hasOwnProperty('externalResources')) {
             obj['externalResources'].forEach(k => {
-                fileToSave.references.push({
-                    'concepts': k.nodes.length > 0 ? k.nodes : [],
-                    'name': k.title.length > 0 ? k.title : ' ',
-                    'description': k.description.length > 0 ? k.description : ' ',
-                    'url': (k.url !== null && k.url.length > 0) ? k.url : ' '
-                });
+                if (k.nodes) {
+                    fileToSave.references.push({
+                        'concepts': k.nodes.length > 0 ? k.nodes : [],
+                        'name': k.title.length > 0 ? k.title : ' ',
+                        'description': k.description.length > 0 ? k.description : ' ',
+                        'url': (k.url != null && k.url.length > 0) ? k.url : ' '
+                    });
+                }
             });
 
         } else {
@@ -332,13 +334,14 @@ export class FileCompareService {
         }
         if (obj.hasOwnProperty('learningOutcomes')) {
             obj['learningOutcomes'].forEach(k => {
-                fileToSave.skills.push({
-                    'concepts': k.nodes.length > 0 ? k.nodes : [],
-                    'name': k.name.length > 0 ? k.name : ' ',
-                    'content': k.content.length > 0 ? k.content : ' ',
-                    'number': k.number != null ? k.number : ' '
-                });
-
+                if (k.nodes) {
+                    fileToSave.skills.push({
+                        'concepts': k.nodes.length > 0 ? k.nodes : [],
+                        'name': k.name.length > 0 ? k.name : ' ',
+                        'content': k.content.length > 0 ? k.content : ' ',
+                        'number': k.number != null ? k.number : ' '
+                    });
+                }
             });
 
         } else {
@@ -354,12 +357,14 @@ export class FileCompareService {
         }
         if (obj.hasOwnProperty('tags')) {
             obj['tags'].forEach(k => {
-                fileToSave.keywords.push({
-                    'concepts': k.nodes.length > 0 ? k.nodes : [],
-                    'color': k.color != null ? k.color : '',
-                    'name': k.name != null ? k.name : '',
-                    'description': k.description != null ? k.description : ''
-                });
+                if (k.nodes) {
+                    fileToSave.keywords.push({
+                        'concepts': k.nodes.length > 0 ? k.nodes : [],
+                        'color': k.color != null ? k.color : '',
+                        'name': k.name != null ? k.name : '',
+                        'description': k.description != null ? k.description : ''
+                    });
+                }
             });
         }
 
