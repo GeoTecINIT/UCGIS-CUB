@@ -12,6 +12,7 @@ export class FileCompareService {
     constructor(private http: HttpClient, private ngZone: NgZone) { }
 
     public URL_BASE = 'https://ucgis-bok-default-rtdb.firebaseio.com/';
+    //public URL_BASE = 'https://ucgis-bok-backup-59a74-default-rtdb.firebaseio.com/'; //Backup database
     public URL_BASE_BOKAPI = 'https://ucgis-api-default-rtdb.firebaseio.com/';
     public URL_BASE_BACKUP1 = 'https://ucgis-bok-backup-default-rtdb.firebaseio.com/';
     public URL_BASE_LTB_EXPORT = 'https://ucgis-bok-import-default-rtdb.firebaseio.com/';
